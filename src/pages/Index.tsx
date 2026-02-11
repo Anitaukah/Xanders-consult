@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Quote, Star } from "lucide-react";
 import { ArrowRight, Building2, Award, Users } from "lucide-react";
 import heroImage from "@/assets/hero-construction.jpg";
 import projectResidential from "@/assets/project-residential.jpg";
@@ -134,6 +135,60 @@ const Index = () => {
           >
             View All Projects <ArrowRight size={16} />
           </Link>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-padding bg-secondary">
+        <SectionHeading
+          label="Testimonials"
+          title="What Our Clients Say"
+          description="Trusted by leading developers, government agencies, and private clients across Nigeria."
+        />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              name: "Chief Adebayo Ogunlesi",
+              role: "CEO, Lekki Gardens PLC",
+              text: "Xander Consult delivered our 120-unit residential project on time and within budget. Their attention to detail and commitment to quality is unmatched in the Nigerian construction industry.",
+              rating: 5,
+            },
+            {
+              name: "Engr. Folake Adeyemi",
+              role: "Director, Sterling Properties Ltd",
+              text: "Working with Xander Consult on the Victoria Island Office Tower was a seamless experience. Their engineering expertise and project management capabilities are truly world-class.",
+              rating: 5,
+            },
+            {
+              name: "Alhaji Musa Ibrahim",
+              role: "MD, Capital Properties Group",
+              text: "From the initial consultation to ongoing construction of our Abuja Business Hub, Xander Consult has consistently exceeded our expectations. A truly reliable partner.",
+              rating: 5,
+            },
+          ].map((testimonial, i) => (
+            <motion.div
+              key={testimonial.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="bg-background p-8 rounded-sm border border-border relative"
+            >
+              <Quote size={32} className="text-primary/15 absolute top-6 right-6" />
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: testimonial.rating }).map((_, j) => (
+                  <Star key={j} size={14} className="fill-primary text-primary" />
+                ))}
+              </div>
+              <p className="font-outfit text-muted-foreground text-sm leading-relaxed mb-6">
+                "{testimonial.text}"
+              </p>
+              <div>
+                <p className="font-outfit font-semibold text-sm text-foreground">{testimonial.name}</p>
+                <p className="font-outfit text-xs text-muted-foreground mt-0.5">{testimonial.role}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
