@@ -16,9 +16,9 @@ const stats = [
 ];
 
 const featuredProjects = [
-  { image: projectResidential, title: "Lekki Luxury Residences", category: "Residential" },
-  { image: projectCommercial, title: "Victoria Island Office Tower", category: "Commercial" },
-  { image: projectInfrastructure, title: "Lagos-Ibadan Expressway", category: "Infrastructure" },
+  { image: projectResidential, title: "Lekki Luxury Residences", category: "Residential", slug: "lekki-luxury-residences" },
+  { image: projectCommercial, title: "Victoria Island Office Tower", category: "Commercial", slug: "victoria-island-office-tower" },
+  { image: projectInfrastructure, title: "Lagos-Ibadan Expressway", category: "Infrastructure", slug: "lagos-ibadan-expressway" },
 ];
 
 const Index = () => {
@@ -102,28 +102,29 @@ const Index = () => {
         />
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredProjects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-sm"
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6">
-                <span className="font-outfit text-xs uppercase tracking-widest text-primary font-semibold">
-                  {project.category}
-                </span>
-                <h3 className="font-outfit text-xl font-bold text-background mt-1">{project.title}</h3>
-              </div>
-            </motion.div>
+            <Link key={project.title} to={`/projects/${project.slug}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group relative overflow-hidden rounded-sm"
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6">
+                  <span className="font-outfit text-xs uppercase tracking-widest text-primary font-semibold">
+                    {project.category}
+                  </span>
+                  <h3 className="font-outfit text-xl font-bold text-background mt-1">{project.title}</h3>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
         <div className="text-center mt-10">
