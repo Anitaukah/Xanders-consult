@@ -24,7 +24,7 @@ const Navbar = () => {
               <span className="font-outfit font-bold text-lg text-background">X</span>
             </div>
             <span className="font-outfit font-bold text-xl tracking-tight text-foreground">
-              Xander<span className="text-primary">Consult</span>
+              Xanders <span className="text-primary">Consult</span>
             </span>
           </Link>
 
