@@ -21,34 +21,34 @@ const Navbar = () => {
 
 	return (
 		<nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-			<div className="bg-black max-w-7xl mx-auto py-2 px-6 lg:px-12 flex justify-between  ">
+			<div className="bg-zinc-950 max-w-7xl mx-auto py-2 px-6 lg:px-12 flex justify-between  ">
 				<div className="flex gap-4">
 					<a
 						href=""
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex gap-2 items-end text-sm text-yellow-400"
+						className="flex gap-2 items-center text-sm text-yellow-400"
 					>
-						<img src={Facebook} alt="Facebook" className="w-5" />
+						<img src={Facebook} alt="Facebook" className="w-4" />
 						Xander's Consult
 					</a>
 					<a
 						href="https://www.instagram.com/xanders_consult?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex gap-2 items-end text-sm text-yellow-400 "
+						className="flex gap-2 items-center text-sm text-yellow-400 "
 					>
-						<img src={Instagram} alt="Instagram" className="w-5" />
+						<img src={Instagram} alt="Instagram" className="w-3.5" />
 						xander_Consult
 					</a>
 				</div>
 				<div className="flex gap-4">
-					<div className="flex gap-2 items-end text-sm text-yellow-400">
-						<img src={Email} alt="Email" className="w-5" />
+					<div className="flex gap-2 items-center text-sm text-yellow-400">
+						<img src={Email} alt="Email" className="w-3.5" />
 						Xandersconsult@gmail.com
 					</div>
-					<div className="flex gap-2 items-end text-sm text-yellow-400">
-						<img src={Phone} alt="Phone" className="w-5" />
+					<div className="flex gap-2 items-center text-sm text-yellow-400">
+						<img src={Phone} alt="Phone" className="w-3.5" />
 						+234 9020 097 083
 					</div>
 				</div>
@@ -69,7 +69,7 @@ const Navbar = () => {
 								to={link.to}
 								className={`font-outfit text-sm py-2 px-2 rounded-sm font-medium transition-colors hover:text-yellow-600 ${
 									location.pathname === link.to
-										? "text-yellow-400"
+										? "text-primary"
 										: "text-muted-foreground"
 								}`}
 							>
