@@ -54,7 +54,7 @@ const Navbar = () => {
 				</div>
 			</div>
 			<div className="max-w-7xl mx-auto px-6 lg:px-12">
-				<div className="flex items-center justify-between md:h-20">
+				<div className="flex items-center justify-between h-20">
 					<Link to="/" className="flex items-center gap-2">
 						<div className="font-outfit font-bold md:text-xl text-sm tracking-tight text-foreground">
 							Xanders <span className="text-primary"> Consult</span>
