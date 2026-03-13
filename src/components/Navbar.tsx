@@ -21,43 +21,43 @@ const Navbar = () => {
 
 	return (
 		<nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-			<div className="bg-zinc-950 max-w-7xl mx-auto py-2 px-6 lg:px-12 flex justify-between  ">
-				<div className="flex gap-4">
+			<div className="hidden md:flex bg-foreground text-background max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-12 flex-col gap-2 md:flex-row md:items-center md:justify-between">
+				<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
 					<a
-						href=""
+						href="https://www.facebook.com/xandersconsult"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex gap-2 items-center text-sm text-yellow-400"
+						className="flex gap-2 items-center text-xs sm:text-sm text-yellow-400"
 					>
-						<img src={Facebook} alt="Facebook" className="w-4" />
+						<img src={Facebook} alt="Facebook" className="w-3.5 sm:w-4" />
 						Xander's Consult
 					</a>
 					<a
 						href="https://www.instagram.com/xanders_consult?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex gap-2 items-center text-sm text-yellow-400 "
+						className="flex gap-2 items-center text-xs sm:text-sm text-yellow-400"
 					>
-						<img src={Instagram} alt="Instagram" className="w-3.5" />
+						<img src={Instagram} alt="Instagram" className="w-3 sm:w-3.5" />
 						xander_Consult
 					</a>
 				</div>
-				<div className="flex gap-4">
-					<div className="flex gap-2 items-center text-sm text-yellow-400">
-						<img src={Email} alt="Email" className="w-3.5" />
+				<div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+					<div className="flex gap-2 items-center text-xs sm:text-sm text-yellow-400 break-words">
+						<img src={Email} alt="Email" className="w-3 sm:w-3.5" />
 						Xandersconsult@gmail.com
 					</div>
-					<div className="flex gap-2 items-center text-sm text-yellow-400">
-						<img src={Phone} alt="Phone" className="w-3.5" />
+					<div className="flex gap-2 items-center text-xs sm:text-sm text-yellow-400">
+						<img src={Phone} alt="Phone" className="w-3 sm:w-3.5" />
 						+234 9020 097 083
 					</div>
 				</div>
 			</div>
 			<div className="max-w-7xl mx-auto px-6 lg:px-12">
-				<div className="flex items-center justify-between h-20">
+				<div className="flex items-center justify-between md:h-20">
 					<Link to="/" className="flex items-center gap-2">
-						<div className="font-outfit font-bold text-xl tracking-tight text-foreground">
-							Xanders Consult
+						<div className="font-outfit font-bold md:text-xl text-sm tracking-tight text-foreground">
+							Xanders <span className="text-primary"> Consult</span>
 						</div>
 					</Link>
 

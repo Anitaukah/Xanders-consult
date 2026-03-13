@@ -7,28 +7,20 @@ export interface ContactFormData {
 }
 
 interface ContactFormConfig {
-	adminEmail: string;
 	endpoint: string;
 }
 
-const FORM_SUBMIT_AJAX_BASE_URL = "https://formsubmit.co/ajax";
-
-export const DEFAULT_CONTACT_ADMIN_EMAIL = "Xandersconsult@gmail.com";
+const DEFAULT_CONTACT_FORM_ENDPOINT = "/api/contact";
 
 export const getContactFormConfig = (
 	config: Partial<ContactFormConfig> = {},
 ): ContactFormConfig => {
-	const adminEmail =
-		config.adminEmail?.trim() ||
-		import.meta.env.VITE_CONTACT_ADMIN_EMAIL?.trim() ||
-		DEFAULT_CONTACT_ADMIN_EMAIL;
-
 	const endpoint =
 		config.endpoint?.trim() ||
 		import.meta.env.VITE_CONTACT_FORM_ENDPOINT?.trim() ||
-		`${FORM_SUBMIT_AJAX_BASE_URL}/${encodeURIComponent(adminEmail)}`;
+		DEFAULT_CONTACT_FORM_ENDPOINT;
 
-	return { adminEmail, endpoint };
+	return { endpoint };
 };
 
 export const submitContactForm = async (
@@ -42,23 +34,17 @@ export const submitContactForm = async (
 			Accept: "application/json",
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify({
-			...formData,
-			phone: formData.phone || "Not provided",
-			_replyto: formData.email,
-			_subject: `New contact message: ${formData.subject}`,
-			_template: "table",
-			_captcha: "false",
-		}),
+		body: JSON.stringify(formData),
 	});
 
 	const result = (await response.json().catch(() => null)) as
-		| { message?: string; success?: boolean | string }
+		| { message?: string; ok?: boolean; error?: string }
 		| null;
 
-	if (!response.ok || result?.success === false || result?.success === "false") {
+	if (!response.ok || result?.ok === false) {
 		throw new Error(
 			result?.message ||
+				result?.error ||
 				"We couldn't send your message right now. Please try again.",
 		);
 	}

@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+// import PhoneImg from "../assets/ic_baseline-phone-in-talk.svg";
+import Facebook from "../assets/new-twitter-ellipse.svg";
+// import Email from "../assets/mdi_email.svg";
+import Instagram from "../assets/instagram.svg";
 
 const Footer = () => {
 	return (
@@ -9,19 +13,37 @@ const Footer = () => {
 					{/* Brand */}
 					<div>
 						<div className="flex items-center gap-2 mb-4">
-							<div className="w-9 h-9 bg-gradient-gold rounded-sm flex items-center justify-center">
+							{/* <div className="w-9 h-9 bg-gradient-gold rounded-sm flex items-center justify-center">
 								<span className="font-outfit font-bold text-foreground">X</span>
-							</div>
+							</div> */}
 							<span className="font-outfit font-bold text-lg text-background">
-								Xander<span className="text-primary">Consult</span>
+								Xanders <span className="text-primary">Consult</span>
 							</span>
 						</div>
 						<p className="text-background/60 text-sm leading-relaxed font-outfit">
 							Delivering excellence in construction and engineering consultancy
 							across Nigeria since 2019.
 						</p>
+
+						<div className="md:hidden visible flex md:flex-col gap-2 sm:flex-row md:items-center md:gap-4 mt-3">
+							<a
+								href="https://www.facebook.com/xandersconsult"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex gap-2 items-center text-xs sm:text-sm text-yellow-400"
+							>
+								<img src={Facebook} alt="Facebook" className="w-7" />
+							</a>
+							<a
+								href="https://www.instagram.com/xanders_consult?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex gap-2 items-center text-xs sm:text-sm text-yellow-400"
+							>
+								<img src={Instagram} alt="Instagram" className="w-7" />
+							</a>
+						</div>
 					</div>
-					
 
 					{/* Quick Links */}
 					<div>

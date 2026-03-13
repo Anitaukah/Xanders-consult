@@ -15,11 +15,11 @@ describe("getContactFormConfig", () => {
 	it("prefers an explicit endpoint when provided", () => {
 		expect(
 			getContactFormConfig({
-				adminEmail: "admin@example.com",
+				adminEmail: "anitaukah2@gmail.com",
 				endpoint: "https://example.com/contact",
 			}),
 		).toEqual({
-			adminEmail: "admin@example.com",
+			adminEmail: "anitaukah2@gmail.com",
 			endpoint: "https://example.com/contact",
 		});
 	});

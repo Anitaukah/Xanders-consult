@@ -27,13 +27,13 @@ const featuredProjects = [
 		image: projectCommercial,
 		// title: "Victoria Island Office Tower",
 		category: "Commercial",
-		slug: "victoria-island-office-tower",
+		slug: "Three storey residential building",
 	},
 	{
 		image: projectInfrastructure,
 		// title: "Lagos-Ibadan Expressway",
 		category: "Infrastructure",
-		slug: "lagos-ibadan-expressway",
+		slug: "l3 Storey Uncompleted Building",
 	},
 ];
 
@@ -128,7 +128,7 @@ const Index = () => {
 				/>
 				<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 					{featuredProjects.map((project, i) => (
-						<Link key={project.title} to={`/projects/${project.slug}`}>
+						<Link to={`/projects/${project.slug}`}>
 							<motion.div
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
@@ -138,18 +138,17 @@ const Index = () => {
 							>
 								<img
 									src={project.image}
-									alt={project.title}
 									className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
 									loading="lazy"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
 								<div className="absolute bottom-0 left-0 p-6">
-									<span className="font-outfit text-xs uppercase tracking-widest text-primary font-semibold">
+									<h3 className="font-outfit text-xs uppercase tracking-widest text-primary font-semibold">
 										{project.category}
-									</span>
-									<h3 className="font-outfit text-xl font-bold text-background mt-1">
-										{project.title}
 									</h3>
+									{/* <h3 className="font-outfit text-xl font-bold text-background mt-1">
+										
+									</h3> */}
 								</div>
 							</motion.div>
 						</Link>

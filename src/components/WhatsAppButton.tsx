@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import Whatsapp from "@/assets/whatsapp-brands-solid.svg"
 
 const WhatsAppButton = () => {
 	return (
@@ -7,9 +8,9 @@ const WhatsAppButton = () => {
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="Chat on WhatsApp"
-			className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[hsl(142,70%,45%)] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+			className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
 		>
-			<MessageCircle size={26} className="text-background" />
+			<img src={Whatsapp} className="" />
 		</a>
 	);
 };
