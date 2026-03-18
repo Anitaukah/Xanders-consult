@@ -18,19 +18,64 @@ const Contact = () => {
 	const [formData, setFormData] = useState(createEmptyFormData);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
+	// const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	// 	e.preventDefault();
+	// 	setIsSubmitting(true);
+
+	// 	try {
+	// 		await submitContactForm(formData);
+	// 		toast.success("Message sent", {
+	// 			description: "Your enquiry has been delivered to the admin email.",
+	// 		});
+	// 		setFormData(createEmptyFormData());
+	// 	} catch (error) {
+	// 		const description =
+	// 			error instanceof Error && error.message !== "Failed to fetch"
+	// 				? error.message
+	// 				: "We couldn't send your message right now. Please try again shortly.";
+
+	// 		toast.error("Message not sent", {
+	// 			description,
+	// 		});
+	// 	} finally {
+	// 		setIsSubmitting(false);
+	// 	}
+	// };
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setIsSubmitting(true);
 
 		try {
-			await submitContactForm(formData);
+			const response = await fetch(
+				"https://formsubmit.co/ajax/Xandersconsult@gmail.com",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json",
+					},
+					body: JSON.stringify({
+						...formData,
+						_subject: "New Visitor from Xanders Website", // makes the email subject clear
+						// _captcha: false, // uncomment ONLY if you get captcha issues (usually not needed)
+					}),
+				},
+			);
+
+			const data = await response.json();
+
+			// Formsubmit returns { success: "true" } on success
+			if (data.success !== "true" && data.success !== true) {
+				throw new Error(data.message || "Submission failed");
+			}
+
 			toast.success("Message sent", {
 				description: "Your enquiry has been delivered to the admin email.",
 			});
 			setFormData(createEmptyFormData());
 		} catch (error) {
 			const description =
-				error instanceof Error && error.message !== "Failed to fetch"
+				error instanceof Error
 					? error.message
 					: "We couldn't send your message right now. Please try again shortly.";
 
@@ -41,7 +86,6 @@ const Contact = () => {
 			setIsSubmitting(false);
 		}
 	};
-
 	return (
 		<div className="min-h-screen bg-background">
 			<Navbar />
